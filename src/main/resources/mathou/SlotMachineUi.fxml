@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="mathou.SlotMachineController" spacing="20">
+  <Label text="Machine à Sous Pokémon" style="-fx-font-size: 24px;"/>
+  <GridPane fx:id="slotGrid" hgap="10" vgap="10" alignment="center">
+    <padding>
+      <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <!-- Définition des cercles, initialisés sans couleur -->
+    <!-- Ligne 1 -->
+    <Circle fx:id="circle00" radius="20" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Circle fx:id="circle01" radius="20" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Circle fx:id="circle02" radius="20" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Circle fx:id="circle03" radius="20" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    <Circle fx:id="circle04" radius="20" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+    <!-- Ligne 2 -->
+    <Circle fx:id="circle10" radius="20" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Circle fx:id="circle11" radius="20" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Circle fx:id="circle12" radius="20" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Circle fx:id="circle13" radius="20" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <Circle fx:id="circle14" radius="20" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+    <!-- Ligne 3 -->
+    <Circle fx:id="circle20" radius="20" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Circle fx:id="circle21" radius="20" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Circle fx:id="circle22" radius="20" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Circle fx:id="circle23" radius="20" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <Circle fx:id="circle24" radius="20" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+  </GridPane>
+  <Button text="Spin" onAction="#spin"/>
+</VBox>
