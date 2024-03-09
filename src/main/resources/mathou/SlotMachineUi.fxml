@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="mathou.SlotMachineController" spacing="20">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="mathou.SlotMachineController" spacing="20">
   <Label text="Machine à Sous Pokémon" style="-fx-font-size: 24px;"/>
   <GridPane fx:id="slotGrid" hgap="10" vgap="10" alignment="center">
     <padding>
       <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
-    <!-- Définition des cercles, initialisés sans couleur -->
-    <!-- Ligne 1 -->
-    <Circle fx:id="circle00" radius="20" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <Circle fx:id="circle01" radius="20" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <Circle fx:id="circle02" radius="20" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-    <Circle fx:id="circle03" radius="20" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-    <Circle fx:id="circle04" radius="20" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
-    <!-- Ligne 2 -->
-    <Circle fx:id="circle10" radius="20" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <Circle fx:id="circle11" radius="20" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-    <Circle fx:id="circle12" radius="20" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-    <Circle fx:id="circle13" radius="20" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-    <Circle fx:id="circle14" radius="20" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-    <!-- Ligne 3 -->
-    <Circle fx:id="circle20" radius="20" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <Circle fx:id="circle21" radius="20" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Circle fx:id="circle22" radius="20" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-    <Circle fx:id="circle23" radius="20" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-    <Circle fx:id="circle24" radius="20" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <!-- Première ligne -->
+    <ImageView fx:id="image00" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ImageView fx:id="image01" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <ImageView fx:id="image02" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <ImageView fx:id="image03" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    <ImageView fx:id="image04" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+    <!-- Deuxième ligne -->
+    <ImageView fx:id="image10" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <ImageView fx:id="image11" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <ImageView fx:id="image12" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <ImageView fx:id="image13" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <ImageView fx:id="image14" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+    <!-- Troisième ligne -->
+    <ImageView fx:id="image20" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <ImageView fx:id="image21" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <ImageView fx:id="image22" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <ImageView fx:id="image23" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <ImageView fx:id="image24" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
   </GridPane>
-  <Button text="Spin" onAction="#spin"/>
+
+  <HBox alignment="center" spacing="10">
+    <Button text="Spin" onAction="#spin"/>
+  </HBox>
 </VBox>

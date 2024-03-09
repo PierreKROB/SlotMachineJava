@@ -28,7 +28,7 @@ public class GrilleJeu {
                     cumulativeProbability += symbole.getProbabilité(); // Cumuler la probabilité
 
                     // Sélectionner le symbole si p est inférieur à la probabilité cumulative
-                    if (p <= cumulativeProbability) {
+                    if (p < cumulativeProbability) {
                         this.symboles[i][j] = symbole;
                         break; // Arrêter la boucle une fois le symbole assigné
                     }
@@ -36,6 +36,7 @@ public class GrilleJeu {
             }
         }
     }
+
 
     // Méthode pour afficher la grille dans la console
     public void afficherGrille() {

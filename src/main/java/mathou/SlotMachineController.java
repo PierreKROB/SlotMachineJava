@@ -1,59 +1,49 @@
 package mathou;
 
 import javafx.fxml.FXML;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.event.ActionEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class SlotMachineController {
-    private GrilleJeu grilleJeu;
+    private GrilleJeu grilleJeu; // Utilisez votre propre logique de grille de jeu ici
 
+    // Déclaration des ImageView définis dans le fichier FXML
     @FXML
-    private Circle circle00, circle01, circle02, circle03, circle04,
-            circle10, circle11, circle12, circle13, circle14,
-            circle20, circle21, circle22, circle23, circle24;
+    private ImageView image00, image01, image02, image03, image04,
+            image10, image11, image12, image13, image14,
+            image20, image21, image22, image23, image24; // Continuez pour les autres ImageView
 
-    // Méthode pour initialiser la grille de jeu et les cercles
+    // Méthode pour initialiser la grille de jeu et les images
     @FXML
     public void initialize() {
-        grilleJeu = new GrilleJeu();
-        updateGrid();
-    }
-
-    @FXML
-    private void spin(ActionEvent event) {
+        grilleJeu = new GrilleJeu(); // Supposons que cela initialise la grille de jeu
         grilleJeu.remplirGrille();
-        updateGrid();
+
     }
 
+    // Méthode appelée lorsque l'utilisateur appuie sur le bouton "Spin"
+    @FXML
+    private void spin() {
+        grilleJeu.remplirGrille(); // Remplir la grille avec des symboles aléatoires
+        updateGrid(); // Mettre à jour l'interface utilisateur en fonction de la nouvelle grille
+    }
+
+    // Mettre à jour les images basées sur la grille de jeu
     private void updateGrid() {
-        Circle[][] circles = {{circle00, circle01, circle02, circle03, circle04},
-                {circle10, circle11, circle12, circle13, circle14},
-                {circle20, circle21, circle22, circle23, circle24}};
+        ImageView[][] images = {
+                {image00, image01, image02, image03, image04},
+                {image10, image11, image12, image13, image14},
+                {image20, image21, image22, image23, image24}
+        };
 
         Symbole[][] symboles = grilleJeu.getSymboles();
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                Color color = getColorForSymbole(symboles[i][j]);
-                circles[i][j].setFill(color);
+        for (int i = 0; i < symboles.length; i++) {
+            for (int j = 0; j < symboles[i].length; j++) {
+                String nomImage = symboles[i][j].getNom().toLowerCase().replace('é', 'e') + ".png";
+                Image image = new Image(getClass().getResourceAsStream("/images/" + nomImage));
+                images[i][j].setImage(image);
             }
-        }
-    }
-
-    private Color getColorForSymbole(Symbole symbole) {
-        if (symbole == null) return Color.WHITE;
-        switch (symbole.getNom()) {
-            case "Pikachu": return Color.YELLOW;
-            case "Bulbizarre": return Color.GREEN;
-            case "Salamèche": return Color.RED;
-            case "Carapuce": return Color.BLUE;
-            case "Évoli": return Color.BROWN;
-            case "Magicarpe": return Color.ORANGE;
-            case "Ronflex": return Color.GRAY;
-            case "Mew": return Color.PINK;
-            case "Mewtwo": return Color.PURPLE;
-            default: return Color.BLACK;
         }
     }
 }

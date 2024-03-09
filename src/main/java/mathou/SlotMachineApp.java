@@ -15,7 +15,7 @@ public class SlotMachineApp extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("SlotMachineUI.fxml"));
 
             // Définir le titre de la fenêtre
-            primaryStage.setTitle("SlotMachine");
+            primaryStage.setTitle("SlotMachine Pokémon");
 
             // Créer et définir la scène
             primaryStage.setScene(new Scene(root));
