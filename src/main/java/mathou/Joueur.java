@@ -11,7 +11,7 @@ public class Joueur {
     // Constructeur de la classe Joueur
     public Joueur(String nom) {
         this.nom = nom;
-        this.jetons = 200000; // Chaque joueur commence avec 200 000 jetons
+        this.jetons = 200000;
         this.meilleurGain = 0;
         this.nombreDeCoupsJoués = 0;
         this.nombreDeJoursJoués = 0;

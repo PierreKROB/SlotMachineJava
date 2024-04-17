@@ -26,14 +26,12 @@ public class Symbole {
         return multiplicateurs;
     }
 
-    // Méthode pour afficher les informations du symbole
-    public void afficherInfos() {
-        System.out.println("Symbole: " + nom);
-        System.out.println("Probabilité: " + probabilité);
-        System.out.print("Multiplicateurs: ");
-        for (int i = 0; i < multiplicateurs.length; i++) {
-            System.out.print(multiplicateurs[i] + " ");
+    public double getMultiplier(int matchesNumber) {
+        matchesNumber -= 3;
+        if (matchesNumber > 0 && matchesNumber <= multiplicateurs.length) {
+            return multiplicateurs[matchesNumber - 1];
         }
-        System.out.println();
+        return 0;
+
     }
 }

@@ -1,3 +1,4 @@
+
 package mathou;
 import java.util.Random;
 
@@ -11,7 +12,6 @@ public class GrilleJeu {
     public GrilleJeu() {
         this.symboles = new Symbole[lignes][colonnes]; // Initialisation du tableau de symboles
     }
-
 
     public void remplirGrille() {
         Random random = new Random(); // Créer une instance de Random pour générer des nombres aléatoires
@@ -37,7 +37,6 @@ public class GrilleJeu {
         }
     }
 
-
     // Méthode pour afficher la grille dans la console
     public void afficherGrille() {
         for (int i = 0; i < lignes; i++) {
@@ -52,7 +51,6 @@ public class GrilleJeu {
         }
     }
 
-
     public Symbole[][] getSymboles() {
         return symboles;
     }
@@ -63,6 +61,26 @@ public class GrilleJeu {
 
     public int getColonnes() {
         return colonnes;
+    }
+
+    public void setSymboles(Symbole[][] nouveauxSymboles) {
+        if (nouveauxSymboles.length != lignes || nouveauxSymboles[0].length != colonnes) {
+            throw new IllegalArgumentException("La dimension des nouveaux symboles doit correspondre à celle de la grille.");
+        }
+
+        for (int i = 0; i < lignes; i++) {
+            for (int j = 0; j < colonnes; j++) {
+                this.symboles[i][j] = nouveauxSymboles[i][j];
+            }
+        }
+    }
+
+    public double évaluerGains() {
+        double totalGain = 0;
+        for (Shape shape : Shape.values()) {
+            totalGain += shape.getMultiplier(symboles);
+        }
+        return totalGain;
     }
 
 }

@@ -2,7 +2,7 @@ package mathou;
 
 public class SymboleFactory {
     // Création des symboles représentant des Pokémon
-    private static final Symbole Mewtwo = new Symbole("mewtwo", 0.0359, new double[]{4, 10, 20});
+    private static final Symbole Wild = new Symbole("wild", 0.0359, new double[]{4, 10, 20});
     private static final Symbole Mew = new Symbole("mew", 0.0479, new double[]{3, 6, 10});
     private static final Symbole Ronflex = new Symbole("ronflex", 0.0719, new double[]{2, 4, 6});
     private static final Symbole Pikachu = new Symbole("pikachu", 0.0103, new double[]{1.2, 3, 5});
@@ -14,6 +14,6 @@ public class SymboleFactory {
 
     // Méthode pour obtenir tous les symboles Pokémon avec leurs probabilités
     public static Symbole[] getSymbolesProbables() {
-        return new Symbole[]{Pikachu, Bulbizarre, Salamèche, Carapuce, Évoli, Magicarpe, Ronflex, Mew, Mewtwo};
+        return new Symbole[]{Pikachu, Bulbizarre, Salamèche, Carapuce, Évoli, Magicarpe, Ronflex, Mew, Wild};
     }
 }

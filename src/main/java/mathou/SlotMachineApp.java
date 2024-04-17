@@ -28,7 +28,6 @@ public class SlotMachineApp extends Application {
     }
 
     public static void main(String[] args) {
-        // Lancer l'application
         launch(args);
     }
 }
