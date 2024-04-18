@@ -132,7 +132,7 @@ public class SlotMachineController {
 
 
     private void updateGrid() {
-        double gain = grilleJeu.évaluerGains();
+
 
         ImageView[][] images = {
                 {image00, image01, image02, image03, image04},
@@ -149,7 +149,8 @@ public class SlotMachineController {
                 images[i][j].setImage(image);
             }
         }
-
+        double multiplie = grilleJeu.evaluerGains();
+        double gain = multiplie * comboMise.getValue().getValeur();
         joueur.ajouterJetons((long) gain);
         updateJetonsDisplay(gain);  // Pass the gain as a parameter
     }
