@@ -1,53 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.ComboBox?>
 
-<?import java.lang.String?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="mathou.SlotMachineController" spacing="20">
-  <Label text="Machine à Sous Pokémon" style="-fx-font-size: 24px;"/>
-  <GridPane fx:id="slotGrid" hgap="10" vgap="10" alignment="center">
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox accessibleRole="IMAGE_VIEW" spacing="20" style="-fx-background-image: url('/images/dlpokemon.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mathou.SlotMachineController">
+  <HBox alignment="center" style="-fx-font-size: 24px;">
+    <Label text="Machine à Sous Pokémon" />
+    </HBox>
+  <GridPane fx:id="slotGrid" alignment="center" hgap="10" vgap="10">
     <padding>
-      <Insets top="20" right="20" bottom="20" left="20"/>
+      <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
     <!-- Images pour la grille -->
-    <ImageView fx:id="image00" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <ImageView fx:id="image01" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <ImageView fx:id="image02" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-    <ImageView fx:id="image03" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-    <ImageView fx:id="image04" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
-    <ImageView fx:id="image10" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <ImageView fx:id="image11" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-    <ImageView fx:id="image12" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-    <ImageView fx:id="image13" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-    <ImageView fx:id="image14" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-    <ImageView fx:id="image20" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <ImageView fx:id="image21" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <ImageView fx:id="image22" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-    <ImageView fx:id="image23" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-    <ImageView fx:id="image24" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <ImageView fx:id="image00" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <ImageView fx:id="image01" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <ImageView fx:id="image02" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+    <ImageView fx:id="image03" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+    <ImageView fx:id="image04" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+    <ImageView fx:id="image10" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <ImageView fx:id="image11" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <ImageView fx:id="image12" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <ImageView fx:id="image13" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+    <ImageView fx:id="image14" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+    <ImageView fx:id="image20" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <ImageView fx:id="image21" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <ImageView fx:id="image22" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <ImageView fx:id="image23" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <ImageView fx:id="image24" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
   </GridPane>
 
-  <HBox alignment="center" spacing="10">
-    <Label fx:id="labelErreur" text="" textFill="red"/>
+  <HBox alignment="center" prefHeight="38.0" prefWidth="619.0" spacing="10">
+    <Label fx:id="labelErreur" text="" textFill="red" />
     <Label fx:id="labelJetons" text="Jetons : 200000" />
     <Label fx:id="labelGains" layoutX="10" layoutY="50" text="Gains: 0" />
-    <VBox spacing="10" alignment="center" xmlns:fx="http://javafx.com/fxml/1">
-      <Button fx:id="infoButton" text="Afficher Infos Joueur" onAction="#handleInfoButton"/>
+    <VBox alignment="center" spacing="10" xmlns:fx="http://javafx.com/fxml/1">
+      <Button fx:id="infoButton" onAction="#handleInfoButton" text="Afficher Infos Joueur" textAlignment="CENTER" />
     </VBox>
     <ComboBox fx:id="comboMise" promptText="Choisir une mise">
       <items>
         <FXCollections fx:factory="observableArrayList">
-          <String fx:value="0"/> <!-- ça va se remplir avec le controller -->
+          <String fx:value="0" /> <!-- ça va se remplir avec le controller -->
         </FXCollections>
       </items>
     </ComboBox>
-    <Button text="Spin" onAction="#spin"/>
+    <Button onAction="#spin" text="Spin" />
   </HBox>
 </VBox>
+
