@@ -85,8 +85,9 @@ public class SlotMachineController {
             long mise = miseSelectionnee.getValeur();
             if (joueur.getJetons() >= mise) {
                 joueur.setJetons(joueur.getJetons() - mise);
-                grilleJeu.remplirGrille();
                 startRollAnimation();
+                grilleJeu.remplirGrille();
+
             } else {
                 labelErreur.setText("Pas assez de jetons pour cette mise.");
             }
