@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -46,6 +47,19 @@ public class LoginController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @FXML
+    private void handleAddUserButton() {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddUser.fxml")));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Ajouter un utilisateur");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
