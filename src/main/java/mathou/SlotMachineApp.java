@@ -6,21 +6,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class SlotMachineApp extends Application {
+
+    public static Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Charger le fichier FXML pour l'interface utilisateur
-            Parent root = FXMLLoader.load(getClass().getResource("SlotMachineUI.fxml"));
+            SlotMachineApp.primaryStage = primaryStage;
 
-            // Définir le titre de la fenêtre
-            primaryStage.setTitle("SlotMachine Pokémon");
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
 
-            // Créer et définir la scène
+            primaryStage.setTitle("Connexion");
+
             primaryStage.setScene(new Scene(root));
 
-            // Afficher la fenêtre
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
