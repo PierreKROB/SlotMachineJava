@@ -152,7 +152,7 @@ public class SlotMachineController {
         double multiplie = grilleJeu.evaluerGains();
         double gain = multiplie * comboMise.getValue().getValeur();
         joueur.ajouterJetons((long) gain);
-        updateJetonsDisplay(gain);  // Pass the gain as a parameter
+        updateJetonsDisplay(gain);
     }
 
     private void updateJetonsDisplay(double gain) {
