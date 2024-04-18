@@ -109,28 +109,37 @@ public enum Shape {
 
     Shape(String... pattern) {
         this.pattern = Arrays.copyOf(pattern, 3);
+        System.out.println("Shape created: " + this.name() + " with pattern: " + Arrays.toString(this.pattern));
     }
 
     public float getMultiplier(Symbole[][] board) {
         int matchesNumber = 0;
-        Symbole previousSymbol = board[0][0];
+        Symbole previousSymbol = board[0][0];  // Assuming there's at least one row and one column.
+
+        System.out.println("Evaluating multiplier for shape: " + this.name());
 
         for (int i = 0; i < pattern.length; i++) {
-            for (int j = 0; j < pattern[0].length(); j++) {
-                if ( pattern[i].charAt(j) != ' ') {
-                    if (previousSymbol.getNom().equals("wild") ) {
+            for (int j = 0; j < pattern[i].length(); j++) {
+                System.out.println("Inspecting cell [" + i + "][" + j + "]: " + pattern[i].charAt(j));
+
+                if (pattern[i].charAt(j) != ' ') {
+                    System.out.println("Match found at [" + i + "][" + j + "]");
+                    if (previousSymbol.getNom().equals("wild")) {
                         matchesNumber++;
+                        System.out.println("Wild match. Total matches: " + matchesNumber);
                         previousSymbol = board[i][j];
-                    } else if (previousSymbol.equals(board[i][j]) || board[i][j].getNom().equals("wild") ) {
+                    } else if (previousSymbol.equals(board[i][j]) || board[i][j].getNom().equals("wild")) {
                         matchesNumber++;
+                        System.out.println("Symbol match. Total matches: " + matchesNumber);
                     } else {
+                        System.out.println("Mismatch found. Returning multiplier for " + previousSymbol.getNom());
                         return (float) previousSymbol.getMultiplier(matchesNumber);
                     }
                 }
             }
         }
 
+        System.out.println("All cells inspected. Returning multiplier for " + previousSymbol.getNom());
         return (float) previousSymbol.getMultiplier(matchesNumber);
-
     }
 }
