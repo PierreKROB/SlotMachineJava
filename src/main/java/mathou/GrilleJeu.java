@@ -1,5 +1,6 @@
 
 package mathou;
+import java.util.Arrays;
 import java.util.Random;
 
 public class GrilleJeu {
@@ -75,10 +76,10 @@ public class GrilleJeu {
         }
     }
 
-    public double évaluerGains() {
+    public double evaluerGains() {
         double totalGain = 0;
         for (Shape shape : Shape.values()) {
-            totalGain += shape.getMultiplier(symboles);
+            totalGain += shape.getTotalMultiplier(symboles);
         }
         return totalGain;
     }

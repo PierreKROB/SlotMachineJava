@@ -109,37 +109,34 @@ public enum Shape {
 
     Shape(String... pattern) {
         this.pattern = Arrays.copyOf(pattern, 3);
-        System.out.println("Shape created: " + this.name() + " with pattern: " + Arrays.toString(this.pattern));
     }
 
-    public float getMultiplier(Symbole[][] board) {
+    public float getTotalMultiplier(Symbole[][] board) {
+        if (board == null || board.length == 0 || board[0].length == 0) {
+            throw new IllegalArgumentException("Board cannot be empty");
+        }
+
         int matchesNumber = 0;
-        Symbole previousSymbol = board[0][0];  // Assuming there's at least one row and one column.
+        Symbole previousSymbol = board[0][0];  // Vérification initiale pour s'assurer que le tableau n'est pas vide.
 
         System.out.println("Evaluating multiplier for shape: " + this.name());
 
-        for (int i = 0; i < pattern.length; i++) {
-            for (int j = 0; j < pattern[i].length(); j++) {
-                System.out.println("Inspecting cell [" + i + "][" + j + "]: " + pattern[i].charAt(j));
+        // Assumant que 'pattern' est un tableau 2D de caractères correspondant à certaines positions du tableau 'board'.
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
 
-                if (pattern[i].charAt(j) != ' ') {
-                    System.out.println("Match found at [" + i + "][" + j + "]");
-                    if (previousSymbol.getNom().equals("wild")) {
+                // Supposition que 'pattern' doit être consulté ici pour correspondre à 'board'.
+                if (pattern[i].charAt(j) != ' ') {  // Supposition que pattern[i].length() correspond à board[i].length
+                    if (previousSymbol.getNom().equals("wild") || previousSymbol.equals(board[i][j]) || board[i][j].getNom().equals("wild")) {
                         matchesNumber++;
-                        System.out.println("Wild match. Total matches: " + matchesNumber);
-                        previousSymbol = board[i][j];
-                    } else if (previousSymbol.equals(board[i][j]) || board[i][j].getNom().equals("wild")) {
-                        matchesNumber++;
-                        System.out.println("Symbol match. Total matches: " + matchesNumber);
                     } else {
-                        System.out.println("Mismatch found. Returning multiplier for " + previousSymbol.getNom());
                         return (float) previousSymbol.getMultiplier(matchesNumber);
                     }
+                    previousSymbol = board[i][j];  // Mise à jour du symbole précédent à chaque fois.
                 }
             }
         }
-
-        System.out.println("All cells inspected. Returning multiplier for " + previousSymbol.getNom());
         return (float) previousSymbol.getMultiplier(matchesNumber);
     }
+
 }
